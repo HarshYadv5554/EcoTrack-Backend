@@ -1,0 +1,21 @@
+{
+  "name": "ecotrack-backend",
+  "version": "1.0.0",
+  "main": "node-build.ts",
+  "type": "module",
+  "scripts": {
+    "start": "node --import tsx node-build.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "pg": "^8.16.3",
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0"
+  }
+} 
