@@ -179,6 +179,7 @@ export const createReport = async (
       userId,
     ]);
 
+<<<<<<< HEAD
   // Also create a corresponding cleanup activity for the feed (if images exist)
   try {
     const beforeImg = (report.images && report.images.length > 0)
@@ -219,6 +220,8 @@ export const createReport = async (
     console.warn("Failed to create cleanup activity from report:", e);
   }
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
     res.status(201).json({
       message: "Waste report created successfully",
       pointsEarned: 50,

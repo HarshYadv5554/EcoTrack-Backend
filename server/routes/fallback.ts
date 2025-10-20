@@ -8,6 +8,7 @@ export const fallbackLogin: RequestHandler = async (req, res) => {
     return res.status(400).json({ error: "Email and password are required" });
   }
 
+<<<<<<< HEAD
   // Check for demo credentials
   if (email === "demo@ecotrack.com") {
     // Accept any password for demo@ecotrack.com
@@ -34,6 +35,9 @@ export const fallbackLogin: RequestHandler = async (req, res) => {
   }
 
   // For any other email, also accept any password (original behavior)
+=======
+  // Mock successful login for demo purposes
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   const mockUser = {
     id: "1",
     name: "Demo User",
@@ -87,7 +91,11 @@ export const fallbackRegister: RequestHandler = async (req, res) => {
 };
 
 export const fallbackGetProfile: RequestHandler = async (req, res) => {
+<<<<<<< HEAD
   // Mock user profile for demo user
+=======
+  // Mock user profile
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   const mockUser = {
     id: "1",
     name: "Demo User",

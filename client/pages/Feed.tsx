@@ -3,8 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+<<<<<<< HEAD
 import { Input } from "@/components/ui/input";
 import { useFeed, CleanupActivity, FeedStats, Comment } from "@/contexts/feed-context";
+=======
+import { useFeed, CleanupActivity, FeedStats } from "@/contexts/feed-context";
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 import {
   Camera,
   MapPin,
@@ -16,8 +20,11 @@ import {
   Award,
   Sparkles,
   Loader2,
+<<<<<<< HEAD
   Send,
   Trash2,
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 } from "lucide-react";
 
 export default function Feed() {
@@ -29,6 +36,7 @@ export default function Feed() {
     loadMoreActivities,
     likeActivity,
     filterActivities,
+<<<<<<< HEAD
     loadActivityComments,
     addActivityComment,
     deleteActivityComment,
@@ -37,6 +45,10 @@ export default function Feed() {
   const [expandedComments, setExpandedComments] = useState<Set<string>>(new Set());
   const [commentTexts, setCommentTexts] = useState<Record<string, string>>({});
   const [submittingComments, setSubmittingComments] = useState<Set<string>>(new Set());
+=======
+  } = useFeed();
+  const [filter, setFilter] = useState<"all" | "verified" | "recent">("all");
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 
   const getTimeAgo = (dateString: string) => {
     const date = new Date(dateString);
@@ -59,6 +71,7 @@ export default function Feed() {
     likeActivity(activityId);
   };
 
+<<<<<<< HEAD
   const toggleComments = async (activityId: string) => {
     if (expandedComments.has(activityId)) {
       setExpandedComments(prev => {
@@ -109,6 +122,8 @@ export default function Feed() {
     }
   };
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
@@ -319,8 +334,12 @@ export default function Feed() {
                   <Button
                     variant="ghost"
                     size="sm"
+<<<<<<< HEAD
                     className="text-muted-foreground hover:text-blue-500"
                     onClick={() => toggleComments(activity.id)}
+=======
+                    className="text-muted-foreground"
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />
                     {activity.comments}
@@ -338,6 +357,7 @@ export default function Feed() {
                   View on Map
                 </Button>
               </div>
+<<<<<<< HEAD
 
               {/* Comments Section */}
               {expandedComments.has(activity.id) && (
@@ -414,6 +434,8 @@ export default function Feed() {
                   </div>
                 </div>
               )}
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
             </CardContent>
           </Card>
         ))}

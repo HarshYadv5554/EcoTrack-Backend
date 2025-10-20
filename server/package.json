@@ -4,9 +4,13 @@
   "main": "node-build.ts",
   "type": "module",
   "scripts": {
+<<<<<<< HEAD
     "start": "node --import tsx node-build.ts",
     "dev": "NODE_ENV=development node --import tsx node-build.ts",
     "prod": "NODE_ENV=production node --import tsx node-build.ts"
+=======
+    "start": "node --import tsx node-build.ts"
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   },
   "dependencies": {
     "express": "^4.18.2",

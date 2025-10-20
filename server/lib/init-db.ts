@@ -98,6 +98,7 @@ export async function initializeDatabase() {
       )
     `);
 
+<<<<<<< HEAD
     // Create comments table for cleanup activities
     await query(`
       CREATE TABLE IF NOT EXISTS activity_comments (
@@ -122,6 +123,8 @@ export async function initializeDatabase() {
       )
     `);
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
     // Create indexes for better performance
     await query(`
       CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
@@ -155,6 +158,7 @@ export async function initializeDatabase() {
       CREATE INDEX IF NOT EXISTS idx_cleanup_activities_location ON cleanup_activities(latitude, longitude);
     `);
 
+<<<<<<< HEAD
     await query(`
       CREATE INDEX IF NOT EXISTS idx_activity_comments_activity_id ON activity_comments(activity_id);
     `);
@@ -169,6 +173,8 @@ export async function initializeDatabase() {
       CREATE INDEX IF NOT EXISTS idx_user_likes_activity_id ON user_likes(activity_id);
     `);
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
     // Create updated_at trigger function
     await query(`
       CREATE OR REPLACE FUNCTION update_updated_at_column()
@@ -205,6 +211,7 @@ export async function initializeDatabase() {
         EXECUTE FUNCTION update_updated_at_column();
     `);
 
+<<<<<<< HEAD
     await query(`
       DROP TRIGGER IF EXISTS update_activity_comments_updated_at ON activity_comments;
       CREATE TRIGGER update_activity_comments_updated_at
@@ -213,6 +220,8 @@ export async function initializeDatabase() {
         EXECUTE FUNCTION update_updated_at_column();
     `);
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
     console.log("Database schema initialized successfully!");
   } catch (error) {
     console.error("Error initializing database:", error);

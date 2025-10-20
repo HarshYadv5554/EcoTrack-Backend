@@ -12,8 +12,11 @@
   },
   "scripts": {
     "dev": "vite",
+<<<<<<< HEAD
     "dev:server": "npx tsx dev-server.js",
     "dev:full": "concurrently \"npm run dev:server\" \"npm run dev\"",
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
     "build:server": "vite build --config vite.config.server.ts",
@@ -81,7 +84,10 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+<<<<<<< HEAD
     "concurrently": "^9.2.0",
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
     "cors": "^2.8.5",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.3.0",

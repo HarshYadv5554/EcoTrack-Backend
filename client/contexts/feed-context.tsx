@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { apiClient } from "@/lib/api";
 
+<<<<<<< HEAD
 export interface Comment {
   id: string;
   activityId: string;
@@ -12,6 +13,8 @@ export interface Comment {
   updatedAt: string;
 }
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 export interface CleanupActivity {
   id: string;
   userId: string;
@@ -34,7 +37,10 @@ export interface CleanupActivity {
   comments: number;
   cleanedAt: string;
   createdAt: string;
+<<<<<<< HEAD
   commentsList?: Comment[];
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 }
 
 export interface FeedStats {
@@ -65,9 +71,12 @@ interface FeedContextType {
   likeActivity: (activityId: string) => Promise<void>;
   refreshFeed: () => Promise<void>;
   filterActivities: (filter: "all" | "verified" | "recent") => void;
+<<<<<<< HEAD
   loadActivityComments: (activityId: string) => Promise<Comment[]>;
   addActivityComment: (activityId: string, commentText: string) => Promise<void>;
   deleteActivityComment: (commentId: string, activityId: string) => Promise<void>;
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 }
 
 const FeedContext = createContext<FeedContextType | undefined>(undefined);
@@ -194,6 +203,7 @@ export function FeedProvider({ children }: { children: React.ReactNode }) {
     // loadFeedData will be called by useEffect when currentFilter changes
   };
 
+<<<<<<< HEAD
   const loadActivityComments = async (activityId: string): Promise<Comment[]> => {
     try {
       const response = await apiClient.getActivityComments(activityId);
@@ -250,6 +260,8 @@ export function FeedProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   const value = {
     activities,
     stats,
@@ -261,9 +273,12 @@ export function FeedProvider({ children }: { children: React.ReactNode }) {
     likeActivity,
     refreshFeed,
     filterActivities,
+<<<<<<< HEAD
     loadActivityComments,
     addActivityComment,
     deleteActivityComment,
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   };
 
   return <FeedContext.Provider value={value}>{children}</FeedContext.Provider>;

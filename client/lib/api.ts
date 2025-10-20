@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import config from "./config";
 
 const API_BASE_URL = config.API_BASE_URL;
+=======
+const API_BASE_URL = "/api";
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 
 class ApiClient {
   private activeRequests: Map<string, Promise<any>> = new Map();
@@ -253,6 +257,7 @@ class ApiClient {
     return this.request("/feed/stats");
   }
 
+<<<<<<< HEAD
   // Comments
   async getActivityComments(activityId: string): Promise<{
     comments: any[];
@@ -278,6 +283,8 @@ class ApiClient {
     });
   }
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   // Utility
   async ping(): Promise<{ message: string; timestamp: string }> {
     return this.request("/ping");

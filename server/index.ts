@@ -2,7 +2,10 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { initializeDatabase } from "./lib/init-db";
+<<<<<<< HEAD
 import { pool } from "./lib/database";
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 import { handleDemo } from "./routes/demo";
 
 // Auth routes
@@ -31,6 +34,7 @@ import {
   getAllCleanupActivities,
   createCleanupActivity,
   getUserCleanupActivities,
+<<<<<<< HEAD
   likeActivity,
   getFeedStats,
 } from "./routes/cleanup-activities";
@@ -44,6 +48,12 @@ import {
   deleteCommentHandler,
 } from "./routes/comments";
 
+=======
+  toggleLike,
+  getFeedStats,
+} from "./routes/cleanup-activities";
+
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 import { authenticateToken } from "./lib/auth";
 
 // Fallback routes
@@ -56,12 +66,16 @@ import {
   fallbackCreateReport,
 } from "./routes/fallback";
 
+<<<<<<< HEAD
 import config from "./config";
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 dotenv.config();
 
 export async function createServer() {
   const app = express();
+<<<<<<< HEAD
   
   // Debug CORS configuration
   console.log('CORS_ORIGINS from env:', process.env.CORS_ORIGINS);
@@ -130,15 +144,50 @@ export async function createServer() {
   // CORS preflight handler
   app.options('*', cors(corsOptions));
 
+=======
+
+  // Middleware
+  app.use(cors());
+  app.use(express.json({ limit: "10mb" }));
+  app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+
+  // Check database availability
+  let isDatabaseAvailable = false;
+
+  // Check if DATABASE_URL is properly configured
+  if (
+    process.env.DATABASE_URL &&
+    process.env.DATABASE_URL !==
+      "postgresql://username:password@hostname:port/database"
+  ) {
+    try {
+      await initializeDatabase();
+      isDatabaseAvailable = true;
+      console.log("Database initialized successfully");
+    } catch (error) {
+      console.error("Failed to initialize database:", error);
+      console.log("Running in demo mode without database");
+      isDatabaseAvailable = false;
+    }
+  } else {
+    console.log("DATABASE_URL not configured. Running in demo mode.");
+    isDatabaseAvailable = false;
+  }
+
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   // Health check
   app.get("/ping", (req, res) => {
     res.json({
       message: "EcoTrack API is running!",
       timestamp: new Date().toISOString(),
+<<<<<<< HEAD
       environment: config.NODE_ENV,
       frontendUrl: config.getCurrentFrontendUrl(),
       backendUrl: config.getCurrentBackendUrl(),
       corsOrigins: config.CORS_ORIGINS,
+=======
+      environment: process.env.NODE_ENV || "development",
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
     });
   });
 
@@ -186,6 +235,7 @@ export async function createServer() {
       getUserCleanupActivities,
     );
     app.post("/cleanup-activities", authenticateToken, createCleanupActivity);
+<<<<<<< HEAD
     app.post("/cleanup-activities/:id/like", authenticateToken, likeActivity);
     app.get("/feed/stats", getFeedStats);
 
@@ -193,6 +243,10 @@ export async function createServer() {
     app.get("/cleanup-activities/:activityId/comments", getActivityComments);
     app.post("/cleanup-activities/:activityId/comments", addCommentHandler, addActivityComment);
     app.delete("/comments/:commentId", deleteCommentHandler, deleteActivityComment);
+=======
+    app.post("/cleanup-activities/:id/like", authenticateToken, toggleLike);
+    app.get("/feed/stats", getFeedStats);
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   } else {
     // Fallback for demo mode
     app.get("/cleanup-activities", (req, res) =>
@@ -223,6 +277,7 @@ export async function createServer() {
         },
       }),
     );
+<<<<<<< HEAD
 
     // Demo mode comments routes
     app.get("/cleanup-activities/:activityId/comments", (req, res) =>
@@ -234,6 +289,8 @@ export async function createServer() {
     app.delete("/comments/:commentId", (req, res) =>
       res.json({ message: "Comment deleted (demo mode)" }),
     );
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   }
 
   return app;

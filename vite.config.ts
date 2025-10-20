@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     host: "::",
     port: 5174,
+<<<<<<< HEAD
     proxy: {
       "/api": {
         target: "http://localhost:3000",
@@ -14,6 +15,8 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
   },
   build: {
     outDir: "dist/spa",

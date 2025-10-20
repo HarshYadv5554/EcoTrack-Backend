@@ -361,6 +361,7 @@ export const getFeedStats: RequestHandler = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 // Like/unlike a cleanup activity
 export const likeActivity = async (
   req: AuthenticatedRequest,
@@ -429,6 +430,8 @@ export const likeActivity = async (
   }
 };
 
+=======
+>>>>>>> 83e28ff6a5bc61f5a1938db72f85ec135475b08c
 // Helper function to calculate points based on waste type
 function calculateCleanupPoints(wasteType: string): number {
   const pointsMap: { [key: string]: number } = {
