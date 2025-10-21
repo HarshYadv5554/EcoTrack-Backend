@@ -8,11 +8,11 @@ export const config = {
   
   // Frontend URLs
   FRONTEND_URL: process.env.FRONTEND_URL || "http://localhost:5173",
-  FRONTEND_URL_PROD: process.env.FRONTEND_URL_PROD || "https://your-frontend-app.onrender.com",
+  FRONTEND_URL_PROD: process.env.FRONTEND_URL_PROD || "https://ecotrack-frontend-tzew.onrender.com",
   
   // Backend URLs
   BACKEND_URL: process.env.BACKEND_URL || "http://localhost:3000",
-  BACKEND_URL_PROD: process.env.BACKEND_URL_PROD || "https://your-backend-app.onrender.com",
+  BACKEND_URL_PROD: process.env.BACKEND_URL_PROD || "https://ecotrack-backend-8x8h.onrender.com",
   
   // CORS configuration
   CORS_ORIGINS: process.env.CORS_ORIGINS || 

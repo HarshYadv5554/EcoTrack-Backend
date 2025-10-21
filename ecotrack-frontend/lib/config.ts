@@ -1,7 +1,7 @@
 // Frontend configuration
 export const config = {
   // API Configuration
-  API_BASE_URL: import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? "/api" : "/api"),
+  API_BASE_URL: import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? "/api" : "https://ecotrack-backend-8x8h.onrender.com"),
   
   // App Configuration
   APP_NAME: import.meta.env.VITE_APP_NAME || "EcoTrack",
