@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import { resolve } from "path";
+import { fileURLToPath, URL } from "node:url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,13 +17,13 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "dist/spa",
+    outDir: "dist",
   },
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./client"),
-      "@shared": path.resolve(__dirname, "./shared"),
+      "@": fileURLToPath(new URL("./client", import.meta.url)),
+      "@shared": fileURLToPath(new URL("./shared", import.meta.url)),
     },
   },
 });
