@@ -22,7 +22,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./client", import.meta.url)),
+      "@": fileURLToPath(new URL(".", import.meta.url)),
       "@shared": fileURLToPath(new URL("./shared", import.meta.url)),
     },
   },
