@@ -1,338 +1,278 @@
-# 🌱 EcoTrack - Community Waste Management Platform
+# 🌱 EcoTrack - Environmental Waste Management Platform
 
-> **Track Waste, Clean Earth** - A comprehensive community-driven platform for waste reporting, cleanup verification, and environmental impact tracking.
+A full-stack web application for tracking and managing environmental waste, built with React, Express, and PostgreSQL. Users can report waste, track cleanup activities, and earn rewards for environmental contributions.
 
-![EcoTrack Logo](https://img.shields.io/badge/EcoTrack-Community%20Platform-green?style=for-the-badge&logo=leaf)
+## 🚀 Live Demo
 
-## 📖 Overview
+- **Frontend**: [https://ecotrack-frontend-tzew.onrender.com](https://ecotrack-frontend-tzew.onrender.com)
+- **Backend API**: [https://ecotrack-backend-1.onrender.com](https://ecotrack-backend-1.onrender.com)
 
-EcoTrack is a modern web application that empowers communities to report environmental issues, coordinate cleanup efforts, and track their collective impact. Users can report waste locations with GPS coordinates and photos, verify cleanup activities with real-time location data, and share their environmental contributions with the community.
+## ✨ Features
 
-## ✨ Key Features
+### 🗺️ **Interactive Map**
+- Real-time waste reporting with GPS coordinates
+- Google Maps integration for location selection
+- Visual markers for different waste types and severity levels
+- Get directions to reported waste locations
 
-### 🗺️ **Interactive Waste Mapping**
+### 📱 **Waste Reporting**
+- Photo upload for before/after cleanup verification
+- Categorize waste by type (plastic, organic, electronic, etc.)
+- Set severity levels (low, medium, high, critical)
+- Contact information for authorities
 
-- **Real-time Google Maps integration** with custom markers
-- **GPS-tracked waste reporting** with photo documentation
-- **Smart marker system** with color-coded status indicators
-- **Location-based filtering** and search capabilities
-- **Turn-by-turn directions** to reported waste locations
+### 🌟 **Community Feed**
+- View cleanup activities from other users
+- Like and comment on cleanup posts
+- Before/after image comparisons
+- Points and rewards system
 
-### 📸 **Cleanup Verification System**
+### 👥 **User Management**
+- Secure authentication with JWT tokens
+- User profiles with cleanup statistics
+- Leaderboard for top contributors
+- Reward system for environmental actions
 
-- **GPS-verified cleanup photos** to prevent fraudulent activities
-- **Before/after photo comparisons** using original report images
-- **Real-time location matching** to ensure accurate cleanup verification
-- **Automatic status updates** when cleanup is verified
+### 📊 **Analytics & Insights**
+- Personal cleanup statistics
+- Community impact metrics
+- Cleanup verification rates
+- Points earned tracking
 
-### 🌐 **Community Feed**
-
-- **Social media-style feed** showcasing cleanup activities
-- **Photo galleries** with before, after, and verification images
-- **Community engagement** through likes, comments, and sharing
-- **Real-time activity tracking** and community statistics
-
-### 🏆 **Gamification & Rewards**
-
-- **Points system** based on waste type and cleanup difficulty
-- **Leaderboard rankings** for individual and community performance
-- **Achievement badges** for various environmental milestones
-- **Rewards marketplace** for redeeming earned eco-points
-
-### 👤 **User Management**
-
-- **Secure authentication** with JWT tokens
-- **User profiles** with activity history and achievements
-- **Personal dashboards** with cleanup statistics
-- **Social features** for community building
-
-### 🎯 **Smart Features**
-
-- **Offline capability** for areas with poor connectivity
-- **Dark/light mode** with system preference detection
-- **Responsive design** optimized for mobile and desktop
-- **Real-time notifications** for nearby cleanup opportunities
-
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 ### **Frontend**
-
-- **React 18** with TypeScript for type-safe development
-- **Vite** for fast build tooling and hot module replacement
-- **TailwindCSS** for utility-first styling
-- **Radix UI** for accessible component primitives
-- **Lucide React** for consistent iconography
-- **Google Maps JavaScript API** with React wrapper
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **Radix UI** for accessible components
+- **React Router** for navigation
+- **Google Maps API** for location services
 
 ### **Backend**
+- **Node.js** with Express
+- **TypeScript** for type safety
+- **PostgreSQL** database
+- **JWT** for authentication
+- **CORS** enabled for cross-origin requests
+- **bcryptjs** for password hashing
 
-- **Node.js** with Express.js framework
-- **PostgreSQL** database with connection pooling
-- **JWT** for secure authentication
-- **bcrypt** for password hashing
-- **Multer** for file upload handling
+### **Deployment**
+- **Render** for hosting
+- **Supabase** for PostgreSQL database**
+- **GitHub** for version control
 
-### **Database**
+## 📁 Project Structure
 
-- **PostgreSQL** with optimized indexes
-- **Neon DB** for cloud-hosted database
-- **Automatic triggers** for timestamp updates
-- **Referential integrity** with foreign key constraints
-
-### **Development Tools**
-
-- **TypeScript** for enhanced developer experience
-- **ESLint & Prettier** for code quality and formatting
-- **Vitest** for testing framework
-- **Git** for version control
+```
+EcoTrack-Backend-main/
+├── client/                     # React frontend (development)
+├── server/                     # Express backend (development)
+├── shared/                     # Shared types and interfaces
+├── ecotrack-frontend/          # Production frontend
+├── ecotrack-backend/           # Production backend
+├── dist/                       # Built files
+└── docs/                       # Documentation
+```
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### **Prerequisites**
+- Node.js 18+ 
+- PostgreSQL database
+- Google Maps API key
 
-- **Node.js** (version 16 or higher)
-- **npm** or **yarn** package manager
-- **PostgreSQL** database (local or cloud)
-- **Google Maps API key**
+### **Local Development**
 
-### 1. Clone the Repository
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/HarshYadv5554/EcoTrack-Backend.git
+   cd EcoTrack-Backend
+   ```
 
-```bash
-git clone https://github.com/your-username/ecotrack.git
-cd ecotrack
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### 2. Install Dependencies
+3. **Set up environment variables**
+   ```bash
+   # Create .env file in root directory
+   DATABASE_URL=postgresql://username:password@localhost:5432/ecotrack
+   JWT_SECRET=your-super-secret-jwt-key
+   CORS_ORIGINS=http://localhost:5173,http://localhost:5174
+   FRONTEND_URL=http://localhost:5173
+   ```
 
-```bash
-npm install
-# or
-yarn install
-```
+4. **Start development servers**
+   ```bash
+   # Start both frontend and backend
+   npm run dev:full
+   
+   # Or start individually
+   npm run dev          # Frontend only
+   npm run dev:server   # Backend only
+   ```
 
-### 3. Environment Configuration
+5. **Access the application**
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:3000
 
-Create a `.env` file in the root directory:
+## 🌐 Production Deployment
 
+### **Frontend Deployment (Render)**
+1. Connect your GitHub repository to Render
+2. Create a new Static Site
+3. Set build command: `npm install && npm run build`
+4. Set publish directory: `dist`
+5. Add environment variables:
+   ```
+   VITE_API_BASE_URL=https://your-backend-url.onrender.com
+   VITE_GOOGLE_MAPS_API_KEY=your-google-maps-api-key
+   ```
+
+### **Backend Deployment (Render)**
+1. Create a new Web Service
+2. Set build command: `npm install && npm run build`
+3. Set start command: `npm start`
+4. Add environment variables:
+   ```
+   DATABASE_URL=your-supabase-postgresql-url
+   JWT_SECRET=your-secure-jwt-secret
+   NODE_ENV=production
+   CORS_ORIGINS=https://your-frontend-url.onrender.com
+   FRONTEND_URL_PROD=https://your-frontend-url.onrender.com
+   BACKEND_URL_PROD=https://your-backend-url.onrender.com
+   ```
+
+## 🗄️ Database Schema
+
+### **Users Table**
+- `id`, `email`, `name`, `password_hash`
+- `phone`, `location`, `avatar_url`
+- `points`, `created_at`, `updated_at`
+
+### **Waste Reports Table**
+- `id`, `user_id`, `location` (lat/lng), `address`
+- `waste_type`, `severity`, `description`
+- `images`, `contact_name`, `contact_phone`
+- `status`, `reported_at`
+
+### **Cleanup Activities Table**
+- `id`, `user_id`, `waste_report_id`
+- `waste_type`, `location`, `description`
+- `before_image`, `after_image`, `verification_image`
+- `points_earned`, `cleaned_at`
+
+### **Comments & Likes**
+- `activity_comments` for user comments
+- `user_likes` for activity likes
+
+## 🔧 API Endpoints
+
+### **Authentication**
+- `POST /auth/register` - User registration
+- `POST /auth/login` - User login
+- `GET /auth/profile` - Get user profile
+- `PUT /auth/profile` - Update user profile
+
+### **Waste Reports**
+- `GET /reports` - Get all reports
+- `GET /reports/my` - Get user's reports
+- `POST /reports` - Create new report
+- `PUT /reports/:id/status` - Update report status
+
+### **Cleanup Activities**
+- `GET /cleanup-activities` - Get feed activities
+- `POST /cleanup-activities` - Create cleanup activity
+- `GET /cleanup-activities/my` - Get user's activities
+- `POST /cleanup-activities/:id/like` - Like activity
+- `GET /feed/stats` - Get feed statistics
+
+### **Comments**
+- `GET /cleanup-activities/:id/comments` - Get comments
+- `POST /cleanup-activities/:id/comments` - Add comment
+- `DELETE /comments/:id` - Delete comment
+
+## 🔐 Environment Variables
+
+### **Backend (.env)**
 ```env
-# Database Configuration
-DATABASE_URL=postgresql://username:password@hostname:port/database
-
-# Authentication
+DATABASE_URL=postgresql://username:password@host:port/database
 JWT_SECRET=your-super-secret-jwt-key
-
-# Server Configuration
-PORT=8080
-NODE_ENV=development
-
-# Google Maps API (get from https://console.cloud.google.com/)
-VITE_GOOGLE_MAPS_API_KEY=your-google-maps-api-key
-```
-
-### 4. Database Setup
-
-The application will automatically initialize the database schema on first run. Ensure your PostgreSQL database is accessible with the provided `DATABASE_URL`.
-
-**Required Tables:**
-
-- `users` - User authentication and profiles
-- `waste_reports` - Waste location reports
-- `cleanup_activities` - Cleanup verification data
-
-### 5. Start Development Server
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-The application will be available at `http://localhost:8080`
-
-## 🌍 Environment Setup Details
-
-### Google Maps API Configuration
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing one
-3. Enable the following APIs:
-   - **Maps JavaScript API**
-   - **Geocoding API**
-   - **Places API**
-4. Create credentials (API Key)
-5. Configure API key restrictions for security
-6. Add the key to your `.env` file as `VITE_GOOGLE_MAPS_API_KEY`
-
-### Database Configuration
-
-#### Option 1: Neon DB (Recommended for Development)
-
-1. Sign up at [Neon](https://neon.tech/)
-2. Create a new database
-3. Copy the connection string
-4. Use it as your `DATABASE_URL`
-
-#### Option 2: Local PostgreSQL
-
-```bash
-# Install PostgreSQL
-brew install postgresql  # macOS
-sudo apt install postgresql  # Ubuntu
-
-# Create database
-createdb ecotrack
-
-# Update DATABASE_URL
-DATABASE_URL=postgresql://username:password@localhost:5432/ecotrack
-```
-
-## 🏗️ Project Structure
-
-```
-ecotrack/
-├── client/                 # Frontend React application
-│   ├── components/         # Reusable UI components
-│   │   ├── ui/            # Basic UI primitives
-│   │   ├── GoogleMap.tsx  # Interactive map component
-│   │   ├── Navigation.tsx # Main navigation
-│   │   └── ...
-│   ├── contexts/          # React context providers
-│   ├── pages/             # Page components
-│   ├── lib/               # Utility functions and API client
-│   └── global.css         # Global styles
-├── server/                # Backend Express application
-│   ├── routes/            # API route handlers
-│   ├── lib/               # Database and utility functions
-│   └── index.ts           # Server entry point
-├── shared/                # Shared types and utilities
-└── public/                # Static assets
-```
-
-## 🚀 Deployment
-
-### Production Build
-
-```bash
-npm run build
-npm run start
-```
-
-### Environment Variables for Production
-
-```env
 NODE_ENV=production
-DATABASE_URL=your-production-database-url
-JWT_SECRET=your-secure-production-jwt-secret
-VITE_GOOGLE_MAPS_API_KEY=your-production-google-maps-key
-PORT=8080
+PORT=3000
+CORS_ORIGINS=https://your-frontend-url.onrender.com
+FRONTEND_URL_PROD=https://your-frontend-url.onrender.com
+BACKEND_URL_PROD=https://your-backend-url.onrender.com
 ```
 
-### Deployment Platforms
+### **Frontend (.env)**
+```env
+VITE_API_BASE_URL=https://your-backend-url.onrender.com
+VITE_GOOGLE_MAPS_API_KEY=your-google-maps-api-key
+VITE_APP_NAME=EcoTrack
+VITE_APP_VERSION=1.0.0
+```
 
-The application is configured for deployment on:
+## 🧪 Testing
 
-- **Vercel** (Frontend)
-- **Railway** (Full-stack)
-- **Heroku** (Full-stack)
-- **DigitalOcean App Platform** (Full-stack)
+```bash
+# Run tests
+npm test
 
-## 📱 User Workflow
+# Type checking
+npm run typecheck
 
-### 1. **Report Waste**
+# Linting
+npm run lint
+```
 
-- Take photo of waste location
-- Add GPS coordinates automatically
-- Describe waste type and severity
-- Submit report to community
+## 📱 Mobile Support
 
-### 2. **View Map**
-
-- Browse interactive map of reported waste
-- Filter by status, type, or proximity
-- Get directions to cleanup locations
-- Click "Mark as Cleaned" on accessible reports
-
-### 3. **Verify Cleanup**
-
-- Capture GPS-verified photos at cleanup location
-- Upload before/after comparison images
-- Earn eco-points for verified activities
-- Share success with community
-
-### 4. **Track Impact**
-
-- View personal cleanup statistics
-- Compare with community leaderboard
-- Redeem eco-points for rewards
-- Share achievements on social platforms
-
-## 🔧 API Documentation
-
-### Authentication Endpoints
-
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/profile` - Get user profile
-- `PUT /api/auth/profile` - Update user profile
-
-### Waste Reports Endpoints
-
-- `GET /api/reports` - Get all waste reports
-- `POST /api/reports` - Create new waste report
-- `GET /api/reports/my` - Get user's reports
-- `PUT /api/reports/:id/status` - Update report status
-
-### Cleanup Activities Endpoints
-
-- `GET /api/cleanup-activities` - Get community feed
-- `POST /api/cleanup-activities` - Create cleanup verification
-- `GET /api/cleanup-activities/my` - Get user's activities
-- `POST /api/cleanup-activities/:id/like` - Like activity
-
-### Statistics Endpoints
-
-- `GET /api/feed/stats` - Get community statistics
+The application is fully responsive and works on:
+- Desktop browsers
+- Mobile browsers
+- Tablet devices
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Please follow these steps:
-
-1. **Fork the repository**
-2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit your changes** (`git commit -m 'Add amazing feature'`)
-4. **Push to the branch** (`git push origin feature/amazing-feature`)
-5. **Open a Pull Request**
-
-### Development Guidelines
-
-- Write TypeScript for type safety
-- Follow the existing code style
-- Add tests for new features
-- Update documentation as needed
-- Ensure mobile responsiveness
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## 🙏 Acknowledgments
+
+- **Google Maps API** for location services
+- **Radix UI** for accessible components
+- **Tailwind CSS** for styling
+- **Render** for hosting services
+- **Supabase** for database services
+
+## 📞 Support
 
 If you encounter any issues or have questions:
 
-1. **Check existing issues** in the GitHub repository
-2. **Create a new issue** with detailed description
-3. **Join our community** for discussions and support
+1. Check the [Issues](https://github.com/HarshYadv5554/EcoTrack-Backend/issues) page
+2. Create a new issue with detailed information
+3. Contact the development team
 
-## 🌟 Acknowledgments
+## 🔄 Version History
 
-- **Google Maps Platform** for mapping services
-- **Neon** for database hosting
-- **Radix UI** for accessible components
-- **Lucide** for beautiful icons
-- **TailwindCSS** for utility-first styling
+- **v1.0.0** - Initial release with core features
+  - User authentication
+  - Waste reporting
+  - Interactive map
+  - Community feed
+  - Cleanup verification
+  - Points and rewards system
 
 ---
 
-**Made with 💚 for a cleaner planet**
-
-_EcoTrack - Empowering communities to make a environmental difference, one cleanup at a time._
+**🌱 Together, let's make our planet cleaner, one cleanup at a time! 🌱**
