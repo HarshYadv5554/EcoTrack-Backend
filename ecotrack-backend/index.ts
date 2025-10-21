@@ -235,3 +235,19 @@ export async function createServer() {
 
   return app;
 }
+
+// Start the server if this file is run directly
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  
+  createServer().then(app => {
+    app.listen(port, () => {
+      console.log(`🚀 EcoTrack Backend server running on port ${port}`);
+      console.log(`📱 Environment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`🔗 Database: ${process.env.DATABASE_URL ? 'Connected' : 'Demo mode'}`);
+    });
+  }).catch(err => {
+    console.error("Failed to start server:", err);
+    process.exit(1);
+  });
+}
