@@ -93,7 +93,7 @@ export const addActivityComment = async (
       activityId: result.rows[0].activity_id.toString(),
       userId: result.rows[0].user_id.toString(),
       userName: result.rows[0].user_name,
-      userAvatar: req.user?.avatar_url,
+      userAvatar: (req.user as any)?.avatar_url || null,
       commentText: result.rows[0].comment_text,
       createdAt: result.rows[0].created_at,
       updatedAt: result.rows[0].updated_at,

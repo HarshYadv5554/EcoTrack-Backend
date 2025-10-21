@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { initializeDatabase } from "./lib/init-db";
 import { pool } from "./lib/database";
-import { handleDemo } from "./routes/demo";
 
 // Auth routes
 import {
