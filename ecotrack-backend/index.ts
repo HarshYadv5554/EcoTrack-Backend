@@ -141,8 +141,6 @@ export async function createServer() {
     });
   });
 
-  // Legacy demo route
-  app.get("/demo", handleDemo);
 
   // Authentication routes - use fallback if database not available
   if (isDatabaseAvailable) {
